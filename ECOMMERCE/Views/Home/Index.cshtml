@@ -4,19 +4,18 @@
 
 <style>
 
-    .main-Container{
+    .main-Container {
         min-width: 200px;
-        max-width: 300px;        
+        max-width: 300px;
     }
 
     .image-container {
-        position: relative;        
+        position: relative;
         height: 200px;
         background-color: #e0e0e0;
         display: flex;
         justify-content: center;
         align-items: center;
-
     }
 
     .image {
@@ -48,29 +47,29 @@
 
 <div id="homeDiv">
     <div id="categoryDiv">
-        <button class="btn btn-outline-dark" value="option" onclick="btnClick(event)">Option</button>
+        <button class="btn btn-outline-dark" value="option" onclick="btnClick(Event)">Option</button>
     </div>
     <hr />
-    <div id="productsDiv" class="container-md" style="background-color:seashell; display:inline-flex; flex-wrap:wrap ">        
-       
-        <div class="main-Container col" style="padding:10px;">
-            <div class="image-container">
-                <img src="~/assets/images/phone.jpg"
-                     alt="Image"
-                     class="image"
-                     id="image" />
-            </div>
-            <div class="info" id="info">
-                <div class="name">Name: Product Name</div>
-                <div class="details">
-                    <div class="price">Price: $99</div>
-                    <div class="rating">Rating: ★★★★☆</div>
-                    <div class="count">Count: 50</div>
-                </div>
-            </div>
-        </div>
+    <div id="productsDiv" class="container-md" style="background-color:seashell; display:inline-flex; flex-wrap:wrap ">
 
-        
+        @* <div class="main-Container col" style="padding:10px;"> *@
+        @*     <div class="image-container"> *@
+        @*         <img src="~/assets/images/phone.jpg" *@
+        @*              alt="Image" *@
+        @*              class="image" *@
+        @*              id="image" /> *@
+        @*     </div> *@
+        @*     <div class="info" id="info"> *@
+        @*         <div class="name">Name: Product Name</div> *@
+        @*         <div class="details"> *@
+        @*             <div class="price">Price: $99</div> *@
+        @*             <div class="rating">Rating: ★★★★☆</div> *@
+        @*             <div class="count">Count: 50</div> *@
+        @*         </div> *@
+        @*     </div> *@
+        @* </div> *@
+
+
     </div>
 
 </div>
@@ -78,25 +77,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 
-      
-    window.onload = function(){        
-        loadCategorys(this.event);
 
-        @*setTimeout(function(){
-            spinner.style.display = 'none';
-            image.style.display = 'block';
-            details.style.display = 'block';
-        },2000);*@
-        
+    window.onload = function(){
+        loadCategorys();
+        loadProducts();
     }
-
-
-    function loadCategorys(e){
-        e.preventDefault();
+    
+    
+    function loadCategorys(){
         $.ajax({
             url:'@Url.Action("GetDetails", "Home")',
             type: 'GET',
-            data: {"url": 'Products/Categories'},
+            data: {"url": '/Products/Categories'},
             async: false,
             datatype: 'json',
             contentType: "application/json",
@@ -104,14 +96,67 @@
                 if (response.message == "OK") {
                     var loadSpot = document.getElementById("categoryDiv");
                     loadSpot.innerHTML = '';
-                    let btnStyle = '';
+                    let content = '';
                     let resData = JSON.parse(response.data);
 
                     //Binding Categorys Buttons.
                     resData.forEach((item)=> {
-                        btnStyle += '<button class="btn btn-outline-dark" value="'+item+'" onclick="btnClick.call(this, event)">'+item+'</button>'
+                        content += '<button class="btn btn-outline-dark" value="'+item+'" onclick="btnClick.call(this, event)">'+item+'</button>'
                     });
-                    loadSpot.innerHTML = btnStyle;
+                    loadSpot.innerHTML = content;
+
+                } else {
+                    console.log(response);
+                    alert('Please Check the Console');
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            },
+            completed: function (cmp) {
+                console.log(cmp);
+            }
+        });
+    }
+
+    function loadProducts(){
+        $.ajax({
+            url:'@Url.Action("GetDetails", "Home")',
+            type: 'GET',
+            data: {"url": '/Products'},
+            async: false,
+            datatype: 'json',
+            contentType: "application/json",
+            success: function (response) {
+                if (response.message == "OK") {
+                    debugger;
+                    var loadSpot = document.getElementById("productsDiv");
+                    loadSpot.innerHTML = '';
+                    let content = '';
+                    let resData = JSON.parse(response.data);
+
+                    //Binding Categorys Buttons.
+                    resData.forEach((item)=> {
+                        debugger;
+                        var rat = item.rating;
+                        content += `<div class="main-Container col" style="padding:10px;" id="${item.id}">
+                                        <div class="image-container">
+                                            <img src="${item.image}"
+                                                 alt="Image"
+                                                 class="image"
+                                                 id="image" />
+                                        </div>
+                                        <div class="info" id="info">
+                                            <div class="name">Name: ${item.title}</div>
+                                            <div class="details">
+                                                <div class="price">Price: ${item.price}</div>
+                                                <div class="rating">Rating: ${rat.rate}</div>
+                                                <div class="count">Count: ${rat.count}</div>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                    });
+                    loadSpot.innerHTML = content;
 
                 } else {
                     console.log(response);

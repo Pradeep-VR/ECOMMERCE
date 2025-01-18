@@ -11,7 +11,7 @@ namespace ECOMMERCE.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        const string baseUrl = "https://fakestoreapi.com/";
+        const string baseUrl = "https://fakestoreapi.com";
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
