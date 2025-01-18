@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Pradeep\\Interview\\ECOMMERCE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{810EE79A-C2B9-4237-9893-95EBF62FF596}|ECOMMERCE\\ECOMMERCE.csproj|d:\\pradeep\\interview\\ecommerce\\ecommerce\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{810EE79A-C2B9-4237-9893-95EBF62FF596}|ECOMMERCE\\ECOMMERCE.csproj|solutionrelative:ecommerce\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{810EE79A-C2B9-4237-9893-95EBF62FF596}|ECOMMERCE\\ECOMMERCE.csproj|d:\\pradeep\\interview\\ecommerce\\ecommerce\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{810EE79A-C2B9-4237-9893-95EBF62FF596}|ECOMMERCE\\ECOMMERCE.csproj|solutionrelative:ecommerce\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{810EE79A-C2B9-4237-9893-95EBF62FF596}|ECOMMERCE\\ECOMMERCE.csproj|d:\\pradeep\\interview\\ecommerce\\ecommerce\\project_instructions.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{810EE79A-C2B9-4237-9893-95EBF62FF596}|ECOMMERCE\\ECOMMERCE.csproj|solutionrelative:ecommerce\\project_instructions.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Project_Instructions.txt",
+              "DocumentMoniker": "D:\\Pradeep\\Interview\\ECOMMERCE\\ECOMMERCE\\Project_Instructions.txt",
+              "RelativeDocumentMoniker": "ECOMMERCE\\Project_Instructions.txt",
+              "ToolTip": "D:\\Pradeep\\Interview\\ECOMMERCE\\ECOMMERCE\\Project_Instructions.txt",
+              "RelativeToolTip": "ECOMMERCE\\Project_Instructions.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-01-17T12:08:22.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Pradeep\\Interview\\ECOMMERCE\\ECOMMERCE\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ECOMMERCE\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Pradeep\\Interview\\ECOMMERCE\\ECOMMERCE\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ECOMMERCE\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAArwBkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T11:43:26.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Pradeep\\Interview\\ECOMMERCE\\ECOMMERCE\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ECOMMERCE\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Pradeep\\Interview\\ECOMMERCE\\ECOMMERCE\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ECOMMERCE\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-17T09:28:46.635Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

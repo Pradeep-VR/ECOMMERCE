@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+    .main-Container{
+        min-width: 200px;
+        max-width: 300px;        
+    }
+
+    .image-container {
+        position: relative;        
+        height: 200px;
+        background-color: #e0e0e0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .image {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .info {
+        padding: 16px;
+    }
+
+    .name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .details {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .details div {
+            font-size: 14px;
+            color: #555;
+        }
+</style>
+
+<div id="homeDiv">
+    <div id="categoryDiv">
+        <button class="btn btn-outline-dark" value="option" onclick="btnClick(event)">Option</button>
+    </div>
+    <hr />
+    <div id="productsDiv" class="container-md" style="background-color:seashell; display:inline-flex; flex-wrap:wrap ">        
+       
+        <div class="main-Container col" style="padding:10px;">
+            <div class="image-container">
+                <img src="~/assets/images/phone.jpg"
+                     alt="Image"
+                     class="image"
+                     id="image" />
+            </div>
+            <div class="info" id="info">
+                <div class="name">Name: Product Name</div>
+                <div class="details">
+                    <div class="price">Price: $99</div>
+                    <div class="rating">Rating: ★★★★☆</div>
+                    <div class="count">Count: 50</div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+      
+    window.onload = function(){        
+        loadCategorys(this.event);
+
+        @*setTimeout(function(){
+            spinner.style.display = 'none';
+            image.style.display = 'block';
+            details.style.display = 'block';
+        },2000);*@
+        
+    }
+
+
+    function loadCategorys(e){
+        e.preventDefault();
+        $.ajax({
+            url:'@Url.Action("GetDetails", "Home")',
+            type: 'GET',
+            data: {"url": 'Products/Categories'},
+            async: false,
+            datatype: 'json',
+            contentType: "application/json",
+            success: function (response) {
+                if (response.message == "OK") {
+                    var loadSpot = document.getElementById("categoryDiv");
+                    loadSpot.innerHTML = '';
+                    let btnStyle = '';
+                    let resData = JSON.parse(response.data);
+
+                    //Binding Categorys Buttons.
+                    resData.forEach((item)=> {
+                        btnStyle += '<button class="btn btn-outline-dark" value="'+item+'" onclick="btnClick.call(this, event)">'+item+'</button>'
+                    });
+                    loadSpot.innerHTML = btnStyle;
+
+                } else {
+                    console.log(response);
+                    alert('Please Check the Console');
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            },
+            completed: function (cmp) {
+                console.log(cmp);
+            }
+        });
+    }
+
+    function btnClick(e) {
+        e.preventDefault();
+        var fired_button_id = this.value; // Get the button's ID
+        alert(fired_button_id); // Alert the ID of the button
+    }
+</script>
